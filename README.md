@@ -86,3 +86,5 @@ This lab simulates core SOC analyst tasks:
 
 Thomas Papas  
 Cybersecurity Analyst (Junior) | SIEM | Python | Threat Detection
+
+This project complements my other security projects, including a network reconnaissance toolkit and a cryptography implementation.
