@@ -39,7 +39,7 @@ Centralized ingestion of Windows and Sysmon logs via Winlogbeat into Elasticsear
 
 Filtered and analyzed PowerShell execution logs using Kibana to investigate process activity and identify potentially suspicious behavior.
 
-![PowerShell Analysis](./screenshots/powershell_analysis.png)
+![PowerShell Analysis](./screenshots/powershell_analysis.jpeg)
 
 ---
 
