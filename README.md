@@ -1,9 +1,9 @@
 # 🔐 SIEM Lab – SOC Simulation (ELK Stack)
 
 ## 📌 Overview
-This project consists of a self-built SIEM lab designed to simulate real-world Security Operations Center (SOC) workflows. The objective is to understand how security events are collected, analyzed, and correlated to detect potential threats.
+This project consists of a self-built SIEM lab designed to simulate real-world Security Operations Center (SOC) workflows. The objective is to understand how logs are collected, analyzed, and used to detect suspicious activity.
 
-The lab focuses on log ingestion, event analysis, detection rule creation, and investigation of suspicious activity.
+The lab focuses on log ingestion, event analysis, and detection of security-relevant behavior.
 
 ---
 
@@ -12,7 +12,7 @@ The lab focuses on log ingestion, event analysis, detection rule creation, and i
 The lab is composed of two virtual machines:
 
 ### 🖥️ Windows VM (Log Source)
-- Sysmon (detailed system and process monitoring)
+- Sysmon (system and process monitoring)
 - Winlogbeat (log forwarding)
 
 ### 🐧 Linux VM (SIEM Stack)
@@ -23,53 +23,34 @@ The lab is composed of two virtual machines:
 Windows (Sysmon / Event Logs)  
 → Winlogbeat  
 → Elasticsearch  
-→ Kibana (analysis & detection)
+→ Kibana  
 
 ---
 
-## ⚙️ Implementation
+## 📊 Log Ingestion & Analysis
 
-- Installed and configured **Sysmon** to capture detailed process and system activity
-- Configured **Winlogbeat** to forward Windows event logs to Elasticsearch
-- Deployed an **ELK stack** (Elasticsearch + Kibana) on a Linux machine
-- Verified log ingestion and indexing in Elasticsearch
-- Used Kibana to explore, filter, and analyze logs
+Centralized ingestion of Windows and Sysmon logs via Winlogbeat into Elasticsearch, visualized and analyzed in Kibana.
+
+![Kibana Logs](./screenshots/kibana_logs.png)
 
 ---
 
-## 🔍 Detection & Analysis
+## 🔍 PowerShell Activity Analysis
 
-### 🧪 Use Case: PowerShell Activity Monitoring
-- Analyzed `powershell.exe` execution logs
-- Investigated command-line arguments for signs of **obfuscation**
-- Identified suspicious execution patterns commonly used in attacks
+Filtered and analyzed PowerShell execution logs using Kibana to investigate process activity and identify potentially suspicious behavior.
 
-### 🚨 Detection Logic
-- Created detection queries in Kibana to identify:
-  - Suspicious PowerShell usage
-  - Unusual process execution patterns
-- Correlated events across logs to validate suspicious activity
+![PowerShell Analysis](./screenshots/powershell_analysis.png)
 
 ---
 
 ## 🧠 SOC Workflow Simulation
 
-This lab simulates key SOC analyst tasks:
+This lab simulates core SOC analyst tasks:
 
 - Log collection and centralization  
-- Event correlation across multiple sources  
-- Detection rule creation  
-- Alert investigation  
-- Threat identification based on log patterns  
-
----
-
-## 🚧 Ongoing Improvements
-
-- Authentication log analysis (failed vs successful login correlation)
-- Brute-force detection scenarios  
-- Additional attack simulations  
-- Alert tuning and false-positive reduction  
+- Event filtering and analysis  
+- Investigation of process activity  
+- Identification of suspicious behavior  
 
 ---
 
@@ -86,22 +67,22 @@ This lab simulates key SOC analyst tasks:
 ## 🎯 Key Learnings
 
 - Understanding of SIEM architecture and log pipelines  
-- Practical experience in log analysis and event correlation  
-- Detection of suspicious behaviors in system activity  
-- Hands-on exposure to SOC workflows and threat detection  
+- Practical experience in log analysis and event filtering  
+- Investigation of system and process activity  
+- Hands-on exposure to SOC workflows  
 
 ---
 
-## 📎 Future Enhancements
+## 🚧 Next Steps
 
-- Dashboard creation for security monitoring  
-- Integration of additional log sources  
-- Automated alerting workflows  
-- Expansion to more advanced attack scenarios  
+- Authentication log analysis  
+- Brute-force detection scenarios  
+- Detection rule creation  
+- Dashboard development  
 
 ---
 
 ## 👤 Author
 
 Thomas Papas  
-Cybersecurity Analyst (Junior) | Python | SIEM | Threat Detection  
+Cybersecurity Analyst (Junior) | SIEM | Python | Threat Detection
