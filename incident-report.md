@@ -3,6 +3,9 @@
 ## Summary
 Suspicious PowerShell activity was detected through process creation logs in the SIEM lab.
 
+Example observed command:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File script.ps1
+
 ## Context
 - Log source: Sysmon Event ID 1
 - Tooling: ELK Stack, Winlogbeat
