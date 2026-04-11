@@ -1,18 +1,25 @@
 # Incident Report: Suspicious PowerShell Execution
 
 ## Summary
-Suspicious PowerShell activity was detected through process creation logs in the SIEM lab.
+Suspicious PowerShell activity was detected through process creation logs in the SIEM lab, triggering an investigation into potential malicious behaviour.
 
 Example observed command:
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File script.ps1
 
 ## Context
 - Log source: Sysmon Event ID 1
-- Tooling: ELK Stack, Winlogbeat
+- Tooling: ELK Stack, WinlogbeatThe PowerShell process was analyzed in Kibana using Sysmn Event ID 1 logs, focusing on process nam, comand-line arguments and parent process relationships. 
+
 - Environment: Windows VM
 
 ## Investigation
-The PowerShell process was analyzed in Kibana using Sysmn Event ID 1 logs, focusing on process nam, comand-line arguments and parent process relationships. 
+
+Fields analyzed:
+
+- process.name
+- process.agrs
+- process.parent.name
+
 The command line and parent process were reviewed to determine whether the activity was legitimate.
 
 Additional context was gathered by examining related events and user behavior.
