@@ -2,8 +2,7 @@
 
 ## Suspicious PowerShell execution
 
-``
-ḱql
+```
     event.code: "1" AND process.name: "powershell.exe" AND (
       process.args: "-EncodedCommand" OR
       process.args: "-enc" OR
@@ -16,7 +15,7 @@
   ```
 ## Office application spawnning Powershell
 
-```ḱql
+```
     event.code : "1" AND process.name: "powershell.exe" and (
     process.parent.name: "winword.exe" OR
     process.parent.name: "excel.exe" OR
@@ -26,6 +25,6 @@
   ```
 
 ## Failed logins
-``ḱql
+``
 event.category: authentification AND event.outcome: failure
   ```
