@@ -15,7 +15,7 @@
   ```
 ## Office application spawnning Powershell
 
-``ḱql
+```ḱql
     event.code : "1" AND process.name: "powershell.exe" and (
     process.parent.name: "winword.exe" OR
     process.parent.name: "excel.exe" OR
@@ -25,6 +25,6 @@
   ```
 
 ## Failed logins
-´´ḱql
+``ḱql
 event.category: authentification AND event.outcome: failure
   ```
