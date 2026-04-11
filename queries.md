@@ -2,7 +2,8 @@
 
 ## Suspicious PowerShell execution
 
-``ḱql
+``
+ḱql
     event.code: "1" AND process.name: "powershell.exe" AND (
       process.args: "-EncodedCommand" OR
       process.args: "-enc" OR
