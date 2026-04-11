@@ -25,6 +25,7 @@
   ```
 
 ## Failed logins
-``
+
+```   
 event.category: authentification AND event.outcome: failure
   ```
