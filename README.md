@@ -64,6 +64,46 @@ This lab simulates core SOC analyst tasks:
 
 ---
 
+## Detection Use Case: Suspicious PowerShell Execution
+
+### Objective
+Detect suspicious PowerShell activity that may indicate malicious execution or attacker behavior.
+
+### Data Sources
+- Sysmon Event ID 1 (Process Creation)
+- Winlogbeat
+- Elasticsearch / Kibana
+
+### Detection Logic
+The detection focuses on identifying:
+- PowerShell execution with encoded or obfuscated commands
+- Use of suspicious flags such as -enc, -nop, or bypass options
+- Unusual parent-child process relationships (e.g., Office spawning PowerShell)
+
+### Example Query
+```kql
+event.code: "1" AND process.name: "powershell.exe" AND (
+  process.args: "-EncodedCommand" OR
+  process.args: "-enc" OR
+  process.args: "-ExecutionPolicy" OR
+  process.args: "Bypass" OR
+  process.args: "-NoProfile" OR
+  process.args: "-WindowStyle" OR
+  process.args: "Hidden"
+)
+```
+### Investigation Steps
+
+1. Identify the parent process
+2. Review command-line arguments
+3. Check if user activity is expected for the user
+4. Look for related events (network or repeated execution)
+5. Determine if activity is benign or suspicious
+
+### Outcome
+
+This use case demonstrates how suspicious PowerShell execution can be detected and investigated in a SOC environment.
+
 ## 🎯 Key Learnings
 
 - Understanding of SIEM architecture and log pipelines  
